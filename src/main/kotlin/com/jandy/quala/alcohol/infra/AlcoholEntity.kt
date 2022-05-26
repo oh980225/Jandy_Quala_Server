@@ -10,8 +10,8 @@ import javax.persistence.*
 data class AlcoholEntity(
   val name: String,
   val size: Int,
-  val level: Double,
-  val starPoint: Int = 0,
+  val level: Float,
+  val starPoint: Float = 0.0f,
   val sweet: Int,
   val acidity: Int,
   val plain: Int,

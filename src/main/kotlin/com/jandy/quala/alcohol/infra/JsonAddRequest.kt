@@ -7,7 +7,7 @@ import com.jandy.quala.alcohol.domain.Situation
 data class JsonAddRequest(
   val name: String,
   val size: Int,
-  val level: Double,
+  val level: Float,
   val sweet: Int,
   val acidity: Int,
   val plain: Int,

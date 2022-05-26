@@ -6,7 +6,7 @@ import com.jandy.quala.alcohol.domain.InputValidChecker.Companion.invalidTasteVa
 data class AddCommand(
   val name: String,
   val size: Int,
-  val level: Double,
+  val level: Float,
   val sweet: Int,
   val acidity: Int,
   val plain: Int,
