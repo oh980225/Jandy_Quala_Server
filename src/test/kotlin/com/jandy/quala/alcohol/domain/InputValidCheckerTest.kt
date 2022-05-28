@@ -6,7 +6,7 @@ import org.junit.jupiter.api.assertThrows
 internal class InputValidCheckerTest {
   @Test
   fun checkNegative() {
-    assertThrows<CanNotNegative> { InputValidChecker.checkNegative(-1.0) }
+    assertThrows<CanNotNegative> { InputValidChecker.checkNegative(-1.0f) }
   }
 
   @Test

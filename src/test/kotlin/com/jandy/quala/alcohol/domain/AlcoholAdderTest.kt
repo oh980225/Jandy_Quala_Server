@@ -20,7 +20,7 @@ internal class AlcoholAdderTest {
         Alcohol(
           name = "52C",
           size = 500,
-          level = 17.5,
+          level = 17.5f,
           sweet = 2,
           acidity = 2,
           plain = 1,
@@ -38,7 +38,7 @@ internal class AlcoholAdderTest {
       AddCommand(
         name = "52C",
         size = 500,
-        level = 17.5,
+        level = 17.5f,
         sweet = 2,
         acidity = 2,
         plain = 1,
@@ -56,7 +56,7 @@ internal class AlcoholAdderTest {
         Alcohol(
           name = "52C",
           size = 500,
-          level = 17.5,
+          level = 17.5f,
           sweet = 2,
           acidity = 2,
           plain = 1,
