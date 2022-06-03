@@ -1,6 +1,5 @@
 package com.jandy.quala.review.infra
 
-import com.jandy.quala.review.domain.InputForWrite
 import com.jandy.quala.review.domain.Review
 
 class EntityMapper {

@@ -8,6 +8,6 @@ data class Review(
   val starPoint: Float,
   val date: LocalDate,
   val writerNickName: String,
-  val profileImage: String,
+  val profileImage: String?,
   val content: String
 )

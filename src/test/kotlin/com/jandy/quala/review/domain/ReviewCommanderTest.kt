@@ -55,7 +55,32 @@ internal class ReviewCommanderTest {
     )
     val commander = ReviewCommander(allReview, allAlcohol)
     every { allAlcohol.belongsTo(1L).id }.returns(1L)
+    every {
+      allReview.saveAndReflectStarPoint(
+        InputForWrite(
+          alcoholId = 1L,
+          userId = 1L,
+          starPoint = 4.0f,
+          content = "It's So Good!!!"
+        )
+      )
+    }.returns(Unit)
 
-    commander.write()
+    commander.write(writeCommand)
+
+    verifyOrder {
+      allAlcohol.belongsTo(1L).id
+      allReview.saveAndReflectStarPoint(
+        InputForWrite(
+          alcoholId = 1L,
+          userId = 1L,
+          starPoint = 4.0f,
+          content = "It's So Good!!!"
+        )
+      )
+    }
+
+    confirmVerified(allAlcohol)
+    confirmVerified(allReview)
   }
 }
