@@ -1,7 +1,8 @@
-package com.jandy.quala.alcohol.infra
+package com.jandy.quala.alcohol_community.infra
 
-import com.jandy.quala.alcohol.domain.Alcohol
-import com.jandy.quala.alcohol.domain.Review
+import com.jandy.quala.alcohol_community.domain.Alcohol
+import com.jandy.quala.alcohol_community.domain.AlcoholWithReviewCount
+import com.jandy.quala.alcohol_community.domain.Review
 
 class EntityMapper {
   companion object {
@@ -20,6 +21,11 @@ class EntityMapper {
       situation = entity.situation,
       category = entity.category,
       food = entity.food
+    )
+
+    fun toAlcoholWithReviewCount(alcohol: Alcohol, count: Long) = AlcoholWithReviewCount(
+      alcohol = alcohol,
+      reviewCount = count
     )
 
     fun toAlcoholEntity(alcohol: Alcohol) = AlcoholEntity(

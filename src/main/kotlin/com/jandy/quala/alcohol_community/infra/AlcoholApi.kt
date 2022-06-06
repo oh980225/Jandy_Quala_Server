@@ -1,7 +1,7 @@
-package com.jandy.quala.alcohol.infra
+package com.jandy.quala.alcohol_community.infra
 
-import com.jandy.quala.alcohol.domain.AlcoholAdder
-import com.jandy.quala.alcohol.domain.AlcoholReader
+import com.jandy.quala.alcohol_community.domain.AlcoholAdder
+import com.jandy.quala.alcohol_community.domain.AlcoholReader
 import com.jandy.quala.common.wrapDataResponse
 import com.jandy.quala.common.wrapNoDataResponse
 import org.springframework.web.bind.annotation.*

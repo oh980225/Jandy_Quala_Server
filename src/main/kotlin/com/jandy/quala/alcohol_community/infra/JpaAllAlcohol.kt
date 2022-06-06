@@ -1,4 +1,4 @@
-package com.jandy.quala.alcohol.infra
+package com.jandy.quala.alcohol_community.infra
 
 import org.springframework.data.jpa.repository.JpaRepository
 

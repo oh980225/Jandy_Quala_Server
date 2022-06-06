@@ -1,4 +1,4 @@
-package com.jandy.quala.alcohol.domain
+package com.jandy.quala.alcohol_community.domain
 
 class AlcoholAdder(
   private val allAlcohol: AllAlcohol

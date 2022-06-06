@@ -1,4 +1,4 @@
-package com.jandy.quala.alcohol.domain
+package com.jandy.quala.alcohol_community.domain
 
 import com.jandy.quala.common.QualaException
 import org.springframework.http.HttpStatus

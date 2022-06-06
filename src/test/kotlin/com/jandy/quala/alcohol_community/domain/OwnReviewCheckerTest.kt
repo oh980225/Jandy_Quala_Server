@@ -1,7 +1,5 @@
-package com.jandy.quala.alcohol.domain
+package com.jandy.quala.alcohol_community.domain
 
-import com.jandy.quala.alcohol.domain.OwnReviewChecker
-import com.jandy.quala.alcohol.domain.Review
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.time.LocalDate

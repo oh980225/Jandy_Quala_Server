@@ -1,6 +1,6 @@
-package com.jandy.quala.alcohol.infra
+package com.jandy.quala.alcohol_community.infra
 
-import com.jandy.quala.alcohol.domain.ReviewCommander
+import com.jandy.quala.alcohol_community.domain.ReviewCommander
 import com.jandy.quala.common.wrapDataResponse
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*

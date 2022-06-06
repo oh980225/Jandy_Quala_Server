@@ -1,8 +1,9 @@
-package com.jandy.quala.alcohol.infra
+package com.jandy.quala.alcohol_community.infra
 
-import com.jandy.quala.alcohol.domain.Alcohol
-import com.jandy.quala.alcohol.domain.AllAlcohol
-import com.jandy.quala.alcohol.domain.InvalidAlcoholId
+import com.jandy.quala.alcohol_community.domain.Alcohol
+import com.jandy.quala.alcohol_community.domain.AlcoholWithReviewCount
+import com.jandy.quala.alcohol_community.domain.AllAlcohol
+import com.jandy.quala.alcohol_community.domain.InvalidAlcoholId
 import org.springframework.transaction.annotation.Transactional
 
 @Transactional(readOnly = true)
@@ -10,7 +11,6 @@ class AllAlcoholJpaAdapter(
   private val jpaAllAlcohol: JpaAllAlcohol,
   private val jpaAllReview: JpaAllReview
 ) : AllAlcohol {
-
   @Transactional
   override fun save(alcohol: Alcohol) = jpaAllAlcohol.save(EntityMapper.toAlcoholEntity(alcohol))
 
@@ -19,5 +19,7 @@ class AllAlcoholJpaAdapter(
     return EntityMapper.toAlcohol(entity)
   }
 
-  override fun getAll() = jpaAllAlcohol.findAll().map { entity -> EntityMapper.toAlcohol(entity) }
+  override fun all() = jpaAllAlcohol.findAll().map { alcoholEntity ->
+    AlcoholWithReviewCount(EntityMapper.toAlcohol(alcoholEntity), jpaAllReview.countByAlcohol_Id(alcoholEntity.id))
+  }
 }

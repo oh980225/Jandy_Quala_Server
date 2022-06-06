@@ -1,7 +1,7 @@
-package com.jandy.quala.alcohol.domain
+package com.jandy.quala.alcohol_community.domain
 
-import com.jandy.quala.alcohol.domain.InputValidChecker.Companion.checkNegative
-import com.jandy.quala.alcohol.domain.InputValidChecker.Companion.invalidTasteValue
+import com.jandy.quala.alcohol_community.domain.InputValidChecker.Companion.checkNegative
+import com.jandy.quala.alcohol_community.domain.InputValidChecker.Companion.invalidTasteValue
 
 data class AddCommand(
   val name: String,

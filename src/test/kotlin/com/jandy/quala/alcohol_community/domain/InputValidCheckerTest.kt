@@ -1,4 +1,4 @@
-package com.jandy.quala.alcohol.domain
+package com.jandy.quala.alcohol_community.domain
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows

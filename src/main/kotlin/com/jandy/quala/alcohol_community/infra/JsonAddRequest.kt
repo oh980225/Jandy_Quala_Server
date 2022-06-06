@@ -1,8 +1,8 @@
-package com.jandy.quala.alcohol.infra
+package com.jandy.quala.alcohol_community.infra
 
-import com.jandy.quala.alcohol.domain.AddCommand
-import com.jandy.quala.alcohol.domain.Category
-import com.jandy.quala.alcohol.domain.Situation
+import com.jandy.quala.alcohol_community.domain.AddCommand
+import com.jandy.quala.alcohol_community.domain.Category
+import com.jandy.quala.alcohol_community.domain.Situation
 
 data class JsonAddRequest(
   val name: String,

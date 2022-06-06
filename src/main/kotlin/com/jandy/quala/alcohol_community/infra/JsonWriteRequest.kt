@@ -1,6 +1,6 @@
-package com.jandy.quala.alcohol.infra
+package com.jandy.quala.alcohol_community.infra
 
-import com.jandy.quala.alcohol.domain.ReviewWriteCommand
+import com.jandy.quala.alcohol_community.domain.ReviewWriteCommand
 
 data class JsonWriteRequest(
   val userId: Long,

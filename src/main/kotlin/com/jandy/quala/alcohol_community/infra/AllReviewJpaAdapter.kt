@@ -1,6 +1,6 @@
-package com.jandy.quala.alcohol.infra
+package com.jandy.quala.alcohol_community.infra
 
-import com.jandy.quala.alcohol.domain.*
+import com.jandy.quala.alcohol_community.domain.*
 import com.jandy.quala.user.domain.InvalidUserId
 import com.jandy.quala.user.infra.JpaAllUser
 import org.springframework.transaction.annotation.Transactional

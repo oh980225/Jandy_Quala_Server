@@ -1,4 +1,4 @@
-package com.jandy.quala.alcohol.domain
+package com.jandy.quala.alcohol_community.domain
 
 data class Alcohol(
   val id: Long = -1,
@@ -14,5 +14,6 @@ data class Alcohol(
   val raw: String,
   val situation: Situation,
   val category: Category,
-  val food: String
+  val food: String,
+  var reviewCount: Long = 0L
 )

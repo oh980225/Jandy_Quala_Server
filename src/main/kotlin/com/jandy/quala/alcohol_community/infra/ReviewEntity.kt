@@ -1,4 +1,4 @@
-package com.jandy.quala.alcohol.infra
+package com.jandy.quala.alcohol_community.infra
 
 import com.jandy.quala.common.BaseEntity
 import com.jandy.quala.user.infra.UserEntity
