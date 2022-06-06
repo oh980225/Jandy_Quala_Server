@@ -3,8 +3,9 @@ package com.jandy.quala.alcohol_community.domain
 import com.jandy.quala.alcohol_community.domain.InputValidChecker.Companion.checkNegative
 import com.jandy.quala.alcohol_community.domain.InputValidChecker.Companion.invalidTasteValue
 
-data class AddCommand(
+data class AddAlcoholCommand(
   val name: String,
+  val image: String,
   val size: Int,
   val level: Float,
   val sweet: Int,
@@ -29,6 +30,7 @@ data class AddCommand(
 
   fun toAlcohol() = Alcohol(
     name = name,
+    image = image,
     size = size,
     level = level,
     sweet = sweet,

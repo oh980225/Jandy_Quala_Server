@@ -5,7 +5,7 @@ import com.jandy.quala.common.wrapDataResponse
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 
-@Controller
+@RestController
 @RequestMapping("/api/v1/review")
 class ReviewApi(
   private val reviewCommander: ReviewCommander

@@ -9,6 +9,7 @@ class EntityMapper {
     fun toAlcohol(entity: AlcoholEntity) = Alcohol(
       id = entity.id,
       name = entity.name,
+      image = entity.image,
       size = entity.size,
       level = entity.level,
       starPoint = entity.starPoint,
@@ -28,8 +29,9 @@ class EntityMapper {
       reviewCount = count
     )
 
-    fun toAlcoholEntity(alcohol: Alcohol) = AlcoholEntity(
+    fun toAlcoholEntity(alcohol: Alcohol, topStats: List<String>) = AlcoholEntity(
       name = alcohol.name,
+      image = alcohol.image,
       size = alcohol.size,
       level = alcohol.level,
       sweet = alcohol.sweet,
@@ -40,7 +42,9 @@ class EntityMapper {
       raw = alcohol.raw,
       situation = alcohol.situation,
       category = alcohol.category,
-      food = alcohol.food
+      food = alcohol.food,
+      firstTop = topStats.get(0),
+      secondTop = topStats.get(1)
     )
 
     fun toReview(entity: ReviewEntity) = Review(

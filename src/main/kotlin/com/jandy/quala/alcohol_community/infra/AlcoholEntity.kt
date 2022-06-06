@@ -9,6 +9,7 @@ import javax.persistence.*
 @Table(name = "alcohol")
 data class AlcoholEntity(
   val name: String,
+  val image: String,
   val size: Int,
   val level: Float,
   var starPoint: Float = 0.0f,
@@ -23,5 +24,7 @@ data class AlcoholEntity(
   val situation: Situation,
   @Enumerated(EnumType.STRING)
   val category: Category,
-  val food: String
+  val food: String,
+  val firstTop: String,
+  val secondTop: String
 ) : BaseEntity()

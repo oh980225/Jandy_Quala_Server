@@ -17,6 +17,7 @@ internal class AlcoholReaderTest {
     every { allAlcohol.belongsTo(1L) } returns Alcohol(
       id = 1L,
       name = "52C",
+      image = "image.png",
       size = 500,
       level = 17.5f,
       starPoint = 4.0f,
@@ -47,6 +48,7 @@ internal class AlcoholReaderTest {
         alcohol = Alcohol(
           id = 1L,
           name = "52C",
+          image = "image.png",
           size = 500,
           level = 17.5f,
           starPoint = 4.0f,

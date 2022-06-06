@@ -3,6 +3,7 @@ package com.jandy.quala.alcohol_community.domain
 data class Alcohol(
   val id: Long = -1,
   val name: String,
+  val image: String,
   val size: Int,
   val level: Float,
   val starPoint: Float = 0.0f,
@@ -14,6 +15,13 @@ data class Alcohol(
   val raw: String,
   val situation: Situation,
   val category: Category,
-  val food: String,
-  var reviewCount: Long = 0L
-)
+  val food: String
+) {
+  fun toTasteStat() = TasteStat(
+    level = LevelChecker.check(level),
+    sweet = sweet,
+    acidity = acidity,
+    plain = plain,
+    body = body
+  )
+}

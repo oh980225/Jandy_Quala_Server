@@ -19,6 +19,7 @@ internal class AlcoholAdderTest {
       allAlcohol.save(
         Alcohol(
           name = "52C",
+          image = "image.png",
           size = 500,
           level = 17.5f,
           sweet = 2,
@@ -35,8 +36,9 @@ internal class AlcoholAdderTest {
     }.returns(Unit)
 
     adder.add(
-      AddCommand(
+      AddAlcoholCommand(
         name = "52C",
+        image = "image.png",
         size = 500,
         level = 17.5f,
         sweet = 2,
@@ -55,6 +57,7 @@ internal class AlcoholAdderTest {
       allAlcohol.save(
         Alcohol(
           name = "52C",
+          image = "image.png",
           size = 500,
           level = 17.5f,
           sweet = 2,

@@ -1,11 +1,12 @@
 package com.jandy.quala.alcohol_community.infra
 
-import com.jandy.quala.alcohol_community.domain.AddCommand
+import com.jandy.quala.alcohol_community.domain.AddAlcoholCommand
 import com.jandy.quala.alcohol_community.domain.Category
 import com.jandy.quala.alcohol_community.domain.Situation
 
 data class JsonAddRequest(
   val name: String,
+  val image: String,
   val size: Int,
   val level: Float,
   val sweet: Int,
@@ -18,8 +19,9 @@ data class JsonAddRequest(
   val category: Category,
   val food: String
 ) {
-  fun toAddCommand() = AddCommand(
+  fun toAddCommand() = AddAlcoholCommand(
     name = name,
+    image = image,
     size = size,
     level = level,
     sweet = sweet,
