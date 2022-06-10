@@ -1,6 +1,7 @@
 package com.jandy.quala.alcohol_community.domain
 
 import com.jandy.quala.user.domain.AllUser
+import com.jandy.quala.user.infra.UserId
 
 open class ReviewCommander(
   private val allReview: AllReview,
@@ -9,20 +10,20 @@ open class ReviewCommander(
   fun readAllByAlcoholId(alcoholId: Long) =
     allReview.belongsToAlcoholId(alcoholId)
 
-  fun write(command: ReviewWriteCommand) {
+  fun write(command: ReviewWriteCommand, userId: UserId) {
     allReview.saveAndReflectStarPoint(
       InputForReviewWrite(
         alcoholId = command.alcoholId,
-        userId = command.userId,
+        userId = userId.id,
         starPoint = command.starPoint,
         content = command.content
       )
     )
   }
 
-  fun update(command: ReviewUpdateCommand) {
+  fun update(command: ReviewUpdateCommand, userId: UserId) {
     val review = allReview.belongsTo(command.reviewId)
-    val user = allUser.belongsTo(command.userId)
+    val user = allUser.belongsTo(userId.id)
 
     OwnReviewChecker.check(review, user.nickName)
 

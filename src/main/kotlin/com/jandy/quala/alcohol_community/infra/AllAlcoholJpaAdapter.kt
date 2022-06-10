@@ -22,6 +22,6 @@ class AllAlcoholJpaAdapter(
   }
 
   override fun all() = jpaAllAlcohol.findAll().map { alcoholEntity ->
-    AlcoholWithReviewCount(EntityMapper.toAlcohol(alcoholEntity), jpaAllReview.countByAlcohol_Id(alcoholEntity.id))
+    AlcoholWithReviewCount(EntityMapper.toAlcohol(alcoholEntity), jpaAllReview.countByAlcoholId(alcoholEntity.id))
   }
 }

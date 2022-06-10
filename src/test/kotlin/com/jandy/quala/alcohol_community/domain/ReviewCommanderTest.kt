@@ -1,7 +1,9 @@
 package com.jandy.quala.alcohol_community.domain
 
 import com.jandy.quala.user.domain.AllUser
+import com.jandy.quala.user.domain.SocialType
 import com.jandy.quala.user.domain.User
+import com.jandy.quala.user.infra.UserId
 import io.mockk.*
 import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.Test
@@ -44,7 +46,6 @@ internal class ReviewCommanderTest {
     val allUser = mockk<AllUser>()
     val reviewWriteCommand = ReviewWriteCommand(
       alcoholId = 1L,
-      userId = 1L,
       starPoint = 4.0f,
       content = "It's So Good!!!"
     )
@@ -60,7 +61,7 @@ internal class ReviewCommanderTest {
       )
     }.returns(Unit)
 
-    commander.write(reviewWriteCommand)
+    commander.write(reviewWriteCommand, UserId(1L))
 
     verify {
       allReview.saveAndReflectStarPoint(
@@ -82,7 +83,6 @@ internal class ReviewCommanderTest {
     val allUser = mockk<AllUser>()
     val reviewUpdateCommand = ReviewUpdateCommand(
       reviewId = 1L,
-      userId = 1L,
       alcoholId = 1L,
       starPoint = 4.0f,
       content = "It's So Good!!!"
@@ -103,7 +103,9 @@ internal class ReviewCommanderTest {
       User(
         id = 1L,
         nickName = "oh980225",
-        profileImage = "panda.png"
+        profileImage = "panda.png",
+        socialId = "123abc",
+        socialType = SocialType.KAKAO
       )
     )
     every {
@@ -117,7 +119,7 @@ internal class ReviewCommanderTest {
       )
     }.returns(Unit)
 
-    commander.update(reviewUpdateCommand)
+    commander.update(reviewUpdateCommand, UserId(1L))
 
     verifyOrder {
       allReview.belongsTo(1L)

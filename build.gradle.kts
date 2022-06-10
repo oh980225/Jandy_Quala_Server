@@ -24,11 +24,10 @@ repositories {
 
 dependencies {
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-  // OAuth
-//  implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 
   //security
-//  implementation("org.springframework.boot:spring-boot-starter-security")
+  implementation("org.springframework.boot:spring-boot-starter-security")
+
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -37,6 +36,11 @@ dependencies {
   developmentOnly("org.springframework.boot:spring-boot-devtools")
   runtimeOnly("mysql:mysql-connector-java")
   annotationProcessor("org.projectlombok:lombok")
+
+  //jwts
+  implementation ("io.jsonwebtoken:jjwt-api:0.11.2")
+  implementation  ("io.jsonwebtoken:jjwt-impl:0.11.2")
+  implementation  ("io.jsonwebtoken:jjwt-jackson:0.11.2")
 
   // test
   testImplementation("org.springframework.boot:spring-boot-starter-test")

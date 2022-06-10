@@ -2,7 +2,8 @@ package com.jandy.quala.alcohol_community.infra
 
 import com.jandy.quala.alcohol_community.domain.ReviewCommander
 import com.jandy.quala.common.wrapDataResponse
-import org.springframework.stereotype.Controller
+import com.jandy.quala.user.domain.Auth
+import com.jandy.quala.user.infra.UserId
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -17,6 +18,8 @@ class ReviewApi(
 
   @PostMapping
   fun write(
+    @Auth userId: UserId,
     @RequestBody request: JsonWriteRequest
-  ) = reviewCommander.write(request.toWriteCommand()).wrapDataResponse()
+  ) =
+    reviewCommander.write(request.toWriteCommand(), userId).wrapDataResponse()
 }
