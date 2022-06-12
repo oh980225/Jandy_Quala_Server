@@ -1,7 +1,6 @@
 package com.jandy.quala.recommend.domain
 
 data class RecommendResultRequest(
-  val userId: Long,
   val level: Int,
   val sweet: Int,
   val acidity: Int,

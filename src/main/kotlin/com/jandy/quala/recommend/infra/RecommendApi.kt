@@ -1,5 +1,7 @@
 package com.jandy.quala.recommend.infra
 
+import com.jandy.quala.auth.domain.Auth
+import com.jandy.quala.auth.infra.UserId
 import com.jandy.quala.common.wrapDataResponse
 import com.jandy.quala.recommend.domain.Recommender
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,6 +16,7 @@ class RecommendApi(
 ) {
   @PostMapping
   fun saveResultAndRecommend(
+    @Auth userId: UserId,
     @RequestBody jsonRequest: JsonRecommendResult
-  ) = recommender.recommend(jsonRequest.toRecommendResultRequest()).wrapDataResponse()
+  ) = recommender.recommend(userId, jsonRequest.toRecommendResultRequest()).wrapDataResponse()
 }

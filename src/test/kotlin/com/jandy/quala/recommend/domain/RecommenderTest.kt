@@ -3,6 +3,7 @@ package com.jandy.quala.recommend.domain
 import com.jandy.quala.alcohol_community.domain.Alcohol
 import com.jandy.quala.alcohol_community.domain.Category
 import com.jandy.quala.alcohol_community.domain.Situation
+import com.jandy.quala.auth.infra.UserId
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -13,7 +14,6 @@ internal class RecommenderTest {
   @Test
   fun recommend() {
     val request = RecommendResultRequest(
-      userId = 1L,
       level = 1,
       sweet = 2,
       acidity = 3,
@@ -22,7 +22,7 @@ internal class RecommenderTest {
     )
     val allRecommend = mockk<AllRecommend>()
     val recommender = Recommender(allRecommend)
-    every { allRecommend.saveResultAndRecommend(request.userId, request.toRecommendResult()) }.returns(
+    every { allRecommend.saveResultAndRecommend(1L, request.toRecommendResult()) }.returns(
       Alcohol(
         id = 1L,
         name = "52C",
@@ -42,9 +42,9 @@ internal class RecommenderTest {
       )
     )
 
-    recommender.recommend(request)
+    recommender.recommend(UserId(1L), request)
 
-    verify { allRecommend.saveResultAndRecommend(request.userId, request.toRecommendResult()) }
+    verify { allRecommend.saveResultAndRecommend(1L, request.toRecommendResult()) }
 
     confirmVerified(allRecommend)
   }
