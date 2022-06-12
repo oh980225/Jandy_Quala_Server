@@ -5,7 +5,7 @@ import com.jandy.quala.recommend.domain.AllAlcoholForRecommend
 import com.jandy.quala.recommend.domain.AllRecommend
 import com.jandy.quala.recommend.domain.AllUserForRecommend
 import com.jandy.quala.recommend.domain.Recommender
-import com.jandy.quala.user.infra.JpaAllUser
+import com.jandy.quala.auth.infra.JpaAllUser
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

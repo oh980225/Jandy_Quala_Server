@@ -1,7 +1,7 @@
 package com.jandy.quala.alcohol_community.infra
 
 import com.jandy.quala.common.BaseEntity
-import com.jandy.quala.user.infra.UserEntity
+import com.jandy.quala.auth.infra.UserEntity
 import javax.persistence.*
 
 @Entity

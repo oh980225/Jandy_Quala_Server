@@ -1,8 +1,8 @@
 package com.jandy.quala.alcohol_community.infra
 
 import com.jandy.quala.alcohol_community.domain.*
-import com.jandy.quala.user.domain.InvalidUserId
-import com.jandy.quala.user.infra.JpaAllUser
+import com.jandy.quala.auth.domain.InvalidUserId
+import com.jandy.quala.auth.infra.JpaAllUser
 import org.springframework.transaction.annotation.Transactional
 import kotlin.math.round
 

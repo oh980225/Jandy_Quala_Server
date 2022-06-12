@@ -1,9 +1,9 @@
 package com.jandy.quala.alcohol_community.domain
 
-import com.jandy.quala.user.domain.AllUser
-import com.jandy.quala.user.domain.SocialType
-import com.jandy.quala.user.domain.User
-import com.jandy.quala.user.infra.UserId
+import com.jandy.quala.auth.domain.AllUser
+import com.jandy.quala.auth.domain.SocialType
+import com.jandy.quala.auth.domain.User
+import com.jandy.quala.auth.infra.UserId
 import io.mockk.*
 import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.Test

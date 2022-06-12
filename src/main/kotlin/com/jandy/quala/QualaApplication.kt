@@ -1,6 +1,6 @@
 package com.jandy.quala
 
-import com.jandy.quala.user.infra.JwtConfig
+import com.jandy.quala.auth.infra.JwtConfig
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication

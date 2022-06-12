@@ -2,8 +2,8 @@ package com.jandy.quala.recommend.infra
 
 import com.jandy.quala.recommend.domain.AllUserForRecommend
 import com.jandy.quala.recommend.domain.RecommendResult
-import com.jandy.quala.user.domain.InvalidUserId
-import com.jandy.quala.user.infra.JpaAllUser
+import com.jandy.quala.auth.domain.InvalidUserId
+import com.jandy.quala.auth.infra.JpaAllUser
 
 class AllUserJpaAdapter(
   private val jpaAllUser: JpaAllUser

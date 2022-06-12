@@ -1,7 +1,7 @@
 package com.jandy.quala.alcohol_community.domain
 
-import com.jandy.quala.user.domain.AllUser
-import com.jandy.quala.user.infra.UserId
+import com.jandy.quala.auth.domain.AllUser
+import com.jandy.quala.auth.infra.UserId
 
 open class ReviewCommander(
   private val allReview: AllReview,

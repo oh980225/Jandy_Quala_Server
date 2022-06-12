@@ -2,8 +2,8 @@ package com.jandy.quala.alcohol_community.infra
 
 import com.jandy.quala.alcohol_community.domain.ReviewCommander
 import com.jandy.quala.common.wrapDataResponse
-import com.jandy.quala.user.domain.Auth
-import com.jandy.quala.user.infra.UserId
+import com.jandy.quala.auth.domain.Auth
+import com.jandy.quala.auth.infra.UserId
 import org.springframework.web.bind.annotation.*
 
 @RestController
