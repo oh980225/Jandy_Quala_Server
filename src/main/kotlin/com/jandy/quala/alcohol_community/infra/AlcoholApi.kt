@@ -4,7 +4,9 @@ import com.jandy.quala.alcohol_community.domain.AlcoholAdder
 import com.jandy.quala.alcohol_community.domain.AlcoholReader
 import com.jandy.quala.common.wrapDataResponse
 import com.jandy.quala.common.wrapNoDataResponse
+import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.multipart.MultipartFile
 
 @RestController
 @RequestMapping("/api/v1/alcohol")
@@ -20,8 +22,9 @@ class AlcoholApi(
     @RequestParam id: Long
   ) = reader.readDetail(id).wrapDataResponse()
 
-  @PostMapping
+  @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE])
   fun add(
-    @RequestBody request: JsonAddRequest
-  ) = adder.add(request.toAddCommand()).wrapNoDataResponse()
+    @RequestPart image: MultipartFile,
+    @RequestPart request: JsonAddRequest
+  ) = adder.add(request.toAddCommand(image)).wrapNoDataResponse()
 }

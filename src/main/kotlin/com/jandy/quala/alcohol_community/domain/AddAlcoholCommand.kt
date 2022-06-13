@@ -2,10 +2,11 @@ package com.jandy.quala.alcohol_community.domain
 
 import com.jandy.quala.alcohol_community.domain.InputValidChecker.Companion.checkNegative
 import com.jandy.quala.alcohol_community.domain.InputValidChecker.Companion.invalidTasteValue
+import org.springframework.web.multipart.MultipartFile
 
 data class AddAlcoholCommand(
   val name: String,
-  val image: String,
+  val image: MultipartFile,
   val size: Int,
   val level: Float,
   val sweet: Int,
@@ -28,9 +29,9 @@ data class AddAlcoholCommand(
     invalidTasteValue(body)
   }
 
-  fun toAlcohol() = Alcohol(
+  fun toAlcohol(imageUrl: String) = Alcohol(
     name = name,
-    image = image,
+    image = imageUrl,
     size = size,
     level = level,
     sweet = sweet,

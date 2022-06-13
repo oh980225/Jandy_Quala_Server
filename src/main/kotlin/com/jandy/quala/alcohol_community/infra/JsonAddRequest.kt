@@ -3,10 +3,10 @@ package com.jandy.quala.alcohol_community.infra
 import com.jandy.quala.alcohol_community.domain.AddAlcoholCommand
 import com.jandy.quala.alcohol_community.domain.Category
 import com.jandy.quala.alcohol_community.domain.Situation
+import org.springframework.web.multipart.MultipartFile
 
 data class JsonAddRequest(
   val name: String,
-  val image: String,
   val size: Int,
   val level: Float,
   val sweet: Int,
@@ -19,7 +19,7 @@ data class JsonAddRequest(
   val category: Category,
   val food: String
 ) {
-  fun toAddCommand() = AddAlcoholCommand(
+  fun toAddCommand(image: MultipartFile) = AddAlcoholCommand(
     name = name,
     image = image,
     size = size,

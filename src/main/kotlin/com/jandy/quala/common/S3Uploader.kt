@@ -24,7 +24,6 @@ class S3Uploader(
 
     val metadata = ObjectMetadata()
     metadata.contentLength = multipartFile.size
-
     amazonS3Client.putObject(
       PutObjectRequest(bucket, fileName, multipartFile.inputStream, metadata)
         .withCannedAcl(CannedAccessControlList.PublicRead)
