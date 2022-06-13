@@ -42,6 +42,9 @@ dependencies {
   implementation  ("io.jsonwebtoken:jjwt-impl:0.11.2")
   implementation  ("io.jsonwebtoken:jjwt-jackson:0.11.2")
 
+  //aws
+  implementation ("org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE")
+
   // test
   testImplementation("org.springframework.boot:spring-boot-starter-test")
 
