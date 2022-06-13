@@ -1,7 +1,7 @@
 package com.jandy.quala.auth.infra
 
-import com.jandy.quala.common.BaseEntity
 import com.jandy.quala.auth.domain.SocialType
+import com.jandy.quala.common.BaseEntity
 import javax.persistence.Entity
 import javax.persistence.EnumType
 import javax.persistence.Enumerated
@@ -15,7 +15,7 @@ data class UserEntity(
 
   var socialId: String,
   val nickName: String,
-  val profileImage: String?,
+  var profileImage: String?,
   var level: Int? = 0,
   var acidity: Int? = 0,
   var sweet: Int? = 0,
