@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test
 
 internal class AuthUserUsecaseTest {
   @Test
-  fun signup() {
-    val request = SignupRequest(
+  fun login() {
+    val request = LoginRequest(
       socialType = SocialType.KAKAO,
       socialId = "abc123",
       nickName = "george"
@@ -19,59 +19,15 @@ internal class AuthUserUsecaseTest {
     val tokenSerializer = mockk<TokenSerializer>()
     val authUserUsecase = AuthUserUsecase(allUser, tokenSerializer)
     every {
-      allUser.existBySocialTypeAndSocialId(SocialType.KAKAO, "abc123")
-    }.returns(false)
+      allUser.existBySocialTypeAndSocialId(any(), any())
+    }.returns(true)
     every {
-      allUser.existByNickName("george")
-    }.returns(false)
-    every {
-      allUser.save(
-        User(
-          socialId = request.socialId,
-          socialType = request.socialType,
-          nickName = request.nickName
-        )
-      )
-    }.returns(1L)
-    every {
-      tokenSerializer.makeToken(any(), any())
-    }.returns(Token("aabbc12dr3df1va2dEfd"))
-
-    authUserUsecase.signup(request)
-
-    verifyOrder {
-      allUser.existBySocialTypeAndSocialId(SocialType.KAKAO, "abc123")
-      allUser.existByNickName("george")
-      allUser.save(
-        User(
-          socialId = request.socialId,
-          socialType = request.socialType,
-          nickName = request.nickName
-        )
-      )
-      tokenSerializer.makeToken(any(), any())
-    }
-
-    confirmVerified(allUser)
-    confirmVerified(tokenSerializer)
-  }
-
-  @Test
-  fun login() {
-    val request = LoginRequest(
-      socialType = SocialType.KAKAO,
-      socialId = "abc123"
-    )
-    val allUser = mockk<AllUser>()
-    val tokenSerializer = mockk<TokenSerializer>()
-    val authUserUsecase = AuthUserUsecase(allUser, tokenSerializer)
-    every {
-      allUser.belongsToSocialTypeAndSocialId(SocialType.KAKAO, "abc123")
+      allUser.belongsToSocialTypeAndSocialId(any(), any())
     }.returns(
       User(
-        socialType = SocialType.KAKAO,
-        socialId = "abc123",
-        nickName = "george"
+        socialId = request.socialId,
+        socialType = request.socialType,
+        nickName = request.nickName
       )
     )
     every {
@@ -81,7 +37,40 @@ internal class AuthUserUsecaseTest {
     authUserUsecase.login(request)
 
     verifyOrder {
-      allUser.belongsToSocialTypeAndSocialId(SocialType.KAKAO, "abc123")
+      allUser.existBySocialTypeAndSocialId(any(), any())
+      allUser.belongsToSocialTypeAndSocialId(any(), any())
+      tokenSerializer.makeToken(any(), any())
+    }
+
+    confirmVerified(allUser)
+    confirmVerified(tokenSerializer)
+  }
+
+  @Test
+  fun login_signup() {
+    val request = LoginRequest(
+      socialType = SocialType.KAKAO,
+      socialId = "abc123",
+      nickName = "george"
+    )
+    val allUser = mockk<AllUser>()
+    val tokenSerializer = mockk<TokenSerializer>()
+    val authUserUsecase = AuthUserUsecase(allUser, tokenSerializer)
+    every {
+      allUser.existBySocialTypeAndSocialId(any(), any())
+    }.returns(false)
+    every {
+      allUser.save(any())
+    }.returns(1L)
+    every {
+      tokenSerializer.makeToken(any(), any())
+    }.returns(Token("aabbc12dr3df1va2dEfd"))
+
+    authUserUsecase.login(request)
+
+    verifyOrder {
+      allUser.existBySocialTypeAndSocialId(any(), any())
+      allUser.save(any())
       tokenSerializer.makeToken(any(), any())
     }
 
