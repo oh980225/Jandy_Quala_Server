@@ -13,7 +13,7 @@ class AuthApi(
   private val authUserUsecase: AuthUserUsecase
 ) {
   @PostMapping("/login")
-  fun signup(
+  fun login(
     @RequestBody jsonRequest: JsonLoginRequest
   ) = authUserUsecase.login(jsonRequest.toLoginRequest()).wrapDataResponse()
 }
