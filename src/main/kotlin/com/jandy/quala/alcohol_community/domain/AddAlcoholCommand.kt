@@ -1,6 +1,6 @@
 package com.jandy.quala.alcohol_community.domain
 
-import com.jandy.quala.alcohol_community.domain.InputValidChecker.Companion.checkNegative
+import com.jandy.quala.alcohol_community.domain.InputValidChecker.Companion.checkPositive
 import com.jandy.quala.alcohol_community.domain.InputValidChecker.Companion.invalidTasteValue
 import org.springframework.web.multipart.MultipartFile
 
@@ -21,8 +21,8 @@ data class AddAlcoholCommand(
 ) {
 
   init {
-    checkNegative(level)
-    checkNegative(size)
+    checkPositive(level)
+    checkPositive(size)
     invalidTasteValue(sweet)
     invalidTasteValue(acidity)
     invalidTasteValue(plain)

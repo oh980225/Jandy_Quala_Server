@@ -2,14 +2,14 @@ package com.jandy.quala.alcohol_community.domain
 
 class InputValidChecker {
   companion object {
-    fun checkNegative(value: Float) {
-      if (value < 0) {
+    fun checkPositive(value: Float) {
+      if (value <= 0) {
         throw CanNotNegative()
       }
     }
 
-    fun checkNegative(value: Int) {
-      if (value < 0) {
+    fun checkPositive(value: Int) {
+      if (value <= 0) {
         throw CanNotNegative()
       }
     }
