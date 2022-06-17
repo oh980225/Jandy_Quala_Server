@@ -12,6 +12,7 @@ data class AlcoholEntity(
   val image: String,
   val size: Int,
   val level: Float,
+  val levelStat: Int,
   var starPoint: Float = 0.0f,
   val sweet: Int,
   val acidity: Int,

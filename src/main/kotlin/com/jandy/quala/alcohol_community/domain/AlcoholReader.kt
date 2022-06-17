@@ -6,4 +6,6 @@ class AlcoholReader(
   fun readDetail(id: Long) = allAlcohol.belongsTo(id)
 
   fun readAll() = allAlcohol.all()
+
+  fun readByConditions(command: ReadByConditionsCommand) = allAlcohol.belongsToByConditions(command)
 }

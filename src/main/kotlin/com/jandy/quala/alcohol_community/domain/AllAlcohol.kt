@@ -4,4 +4,5 @@ interface AllAlcohol {
   fun save(alcohol: Alcohol)
   fun belongsTo(id: Long): Alcohol
   fun all(): List<AlcoholWithReviewCount>
+  fun belongsToByConditions(command: ReadByConditionsCommand): List<AlcoholWithReviewCount>
 }

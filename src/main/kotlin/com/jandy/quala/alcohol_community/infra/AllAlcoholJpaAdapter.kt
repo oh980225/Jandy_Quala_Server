@@ -24,4 +24,23 @@ class AllAlcoholJpaAdapter(
   override fun all() = jpaAllAlcohol.findAll().map { alcoholEntity ->
     AlcoholWithReviewCount(EntityMapper.toAlcohol(alcoholEntity), jpaAllReview.countByAlcoholId(alcoholEntity.id))
   }
+
+  override fun belongsToByConditions(command: ReadByConditionsCommand): List<AlcoholWithReviewCount> {
+    command.category?.let {
+      return jpaAllAlcohol.findByLevelsInAndSituationsInAndCategory(
+        command.levelStats,
+        command.situations,
+        command.category
+      ).map { alcoholEntity ->
+        AlcoholWithReviewCount(EntityMapper.toAlcohol(alcoholEntity), jpaAllReview.countByAlcoholId(alcoholEntity.id))
+      }
+    }
+
+    return jpaAllAlcohol.findByLevelsInAndSituationsIn(
+      command.levelStats,
+      command.situations,
+    ).map { alcoholEntity ->
+      AlcoholWithReviewCount(EntityMapper.toAlcohol(alcoholEntity), jpaAllReview.countByAlcoholId(alcoholEntity.id))
+    }
+  }
 }

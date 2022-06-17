@@ -22,9 +22,14 @@ class AlcoholApi(
     @RequestParam id: Long
   ) = reader.readDetail(id).wrapDataResponse()
 
+  @GetMapping("/conditions")
+  fun getByConditions(
+    @RequestBody jsonRequest: JsonReadByConditionRequest
+  ) = reader.readByConditions(jsonRequest.toReadByConditionsCommand()).wrapDataResponse()
+
   @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE])
   fun add(
     @RequestPart image: MultipartFile,
-    @RequestPart request: JsonAddRequest
-  ) = adder.add(request.toAddCommand(image)).wrapNoDataResponse()
+    @RequestPart jsonRequest: JsonAddRequest
+  ) = adder.add(jsonRequest.toAddCommand(image)).wrapNoDataResponse()
 }

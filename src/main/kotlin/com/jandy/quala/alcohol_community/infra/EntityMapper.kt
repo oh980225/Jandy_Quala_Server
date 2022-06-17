@@ -2,6 +2,7 @@ package com.jandy.quala.alcohol_community.infra
 
 import com.jandy.quala.alcohol_community.domain.Alcohol
 import com.jandy.quala.alcohol_community.domain.AlcoholWithReviewCount
+import com.jandy.quala.alcohol_community.domain.LevelChecker
 import com.jandy.quala.alcohol_community.domain.Review
 
 class EntityMapper {
@@ -34,6 +35,7 @@ class EntityMapper {
       image = alcohol.image,
       size = alcohol.size,
       level = alcohol.level,
+      levelStat = LevelChecker.check(alcohol.level),
       sweet = alcohol.sweet,
       acidity = alcohol.acidity,
       plain = alcohol.plain,
