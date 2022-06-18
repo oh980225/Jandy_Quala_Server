@@ -1,7 +1,6 @@
 package com.jandy.quala.alcohol_community.infra
 
-import com.jandy.quala.alcohol_community.domain.AlcoholAdder
-import com.jandy.quala.alcohol_community.domain.AlcoholReader
+import com.jandy.quala.alcohol_community.domain.*
 import com.jandy.quala.common.wrapDataResponse
 import com.jandy.quala.common.wrapNoDataResponse
 import org.springframework.http.MediaType
@@ -24,8 +23,16 @@ class AlcoholApi(
 
   @GetMapping("/conditions")
   fun getByConditions(
-    @RequestBody jsonRequest: JsonReadByConditionRequest
-  ) = reader.readByConditions(jsonRequest.toReadByConditionsCommand()).wrapDataResponse()
+    @RequestParam levelStats: MutableList<Int>?,
+    @RequestParam situations: MutableList<Situation>?,
+    @RequestParam category: Category?
+  ) = reader.readByConditions(
+    ReadByConditionsCommand(
+      levelStats = levelStats ?: mutableListOf(),
+      situations = situations ?: mutableListOf(),
+      category = category
+    )
+  ).wrapDataResponse()
 
   @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE])
   fun add(
