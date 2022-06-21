@@ -12,12 +12,9 @@ class AllAlcoholJpaAdapter(
 ) : AllAlcoholForRecommend {
   private val finder = TopPointFinder()
 
-  override fun recommendAlcohol(result: RecommendResult): Alcohol {
+  override fun recommendAlcohol(result: RecommendResult): List<Alcohol> {
     val topStats = finder.find(result.toTasteStat())
-    return EntityMapper
-      .toAlcohol(
-        jpaAllAlcohol.findByFirstTopAndSecondTop(topStats.get(0), topStats.get(1))
-          .orElse(jpaAllAlcohol.findAll().random())
-      )
+    return jpaAllAlcohol.findAllByFirstTopAndSecondTop(topStats)
+      .map { entity -> EntityMapper.toAlcohol(entity) }
   }
 }

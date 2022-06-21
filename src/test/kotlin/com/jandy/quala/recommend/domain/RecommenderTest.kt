@@ -23,22 +23,24 @@ internal class RecommenderTest {
     val allRecommend = mockk<AllRecommend>()
     val recommender = Recommender(allRecommend)
     every { allRecommend.saveResultAndRecommend(1L, request.toRecommendResult()) }.returns(
-      Alcohol(
-        id = 1L,
-        name = "52C",
-        image = "image.png",
-        size = 500,
-        level = 17.5f,
-        starPoint = 4.0f,
-        sweet = 2,
-        acidity = 2,
-        plain = 1,
-        body = 1,
-        introduce = "오이주입니다.",
-        raw = "오이",
-        situation = Situation.TRAVEL,
-        category = Category.SPIRITS,
-        food = "곱창구이,숙성회,비빔면"
+      listOf(
+        Alcohol(
+          id = 1L,
+          name = "52C",
+          image = "image.png",
+          size = 500,
+          level = 17.5f,
+          starPoint = 4.0f,
+          sweet = 2,
+          acidity = 2,
+          plain = 1,
+          body = 1,
+          introduce = "오이주입니다.",
+          raw = "오이",
+          situation = Situation.TRAVEL,
+          category = Category.SPIRITS,
+          food = "곱창구이,숙성회,비빔면"
+        )
       )
     )
 

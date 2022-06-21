@@ -14,7 +14,7 @@ class AllRecommendJpaAdapter(
 ) : AllRecommend {
 
   @Transactional
-  override fun saveResultAndRecommend(userId: Long, result: RecommendResult): Alcohol {
+  override fun saveResultAndRecommend(userId: Long, result: RecommendResult): List<Alcohol> {
     allUser.saveResult(userId, result)
     return allAlcohol.recommendAlcohol(result)
   }
