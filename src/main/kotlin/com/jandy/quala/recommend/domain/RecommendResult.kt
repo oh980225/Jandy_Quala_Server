@@ -1,6 +1,5 @@
 package com.jandy.quala.recommend.domain
 
-import com.jandy.quala.alcohol_community.domain.LevelChecker
 import com.jandy.quala.alcohol_community.domain.TasteStat
 
 data class RecommendResult(

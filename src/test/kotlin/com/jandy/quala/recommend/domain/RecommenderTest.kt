@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test
 
 internal class RecommenderTest {
   @Test
-  fun recommend() {
+  fun save_and_recommend() {
     val request = RecommendResultRequest(
       level = 1,
       sweet = 2,
@@ -47,6 +47,39 @@ internal class RecommenderTest {
     recommender.recommend(UserId(1L), request)
 
     verify { allRecommend.saveResultAndRecommend(1L, request.toRecommendResult()) }
+
+    confirmVerified(allRecommend)
+  }
+
+  @Test
+  fun recommend() {
+    val allRecommend = mockk<AllRecommend>()
+    val recommender = Recommender(allRecommend)
+    every { allRecommend.recommend(any()) }.returns(
+      listOf(
+        Alcohol(
+          id = 1L,
+          name = "52C",
+          image = "image.png",
+          size = 500,
+          level = 17.5f,
+          starPoint = 4.0f,
+          sweet = 2,
+          acidity = 2,
+          plain = 1,
+          body = 1,
+          introduce = "오이주입니다.",
+          raw = "오이",
+          situation = Situation.TRAVEL,
+          category = Category.SPIRITS,
+          food = "곱창구이,숙성회,비빔면"
+        )
+      )
+    )
+
+    recommender.recommend(UserId(1L))
+
+    verify { allRecommend.recommend(1L) }
 
     confirmVerified(allRecommend)
   }

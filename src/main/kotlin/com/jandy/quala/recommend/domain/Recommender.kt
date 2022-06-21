@@ -7,4 +7,6 @@ class Recommender(
 ) {
   fun recommend(userId: UserId, request: RecommendResultRequest) =
     allRecommend.saveResultAndRecommend(userId.id, request.toRecommendResult())
+
+  fun recommend(userId: UserId) = allRecommend.recommend(userId.id)
 }

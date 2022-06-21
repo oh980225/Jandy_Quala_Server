@@ -18,4 +18,6 @@ class AllRecommendJpaAdapter(
     allUser.saveResult(userId, result)
     return allAlcohol.recommendAlcohol(result)
   }
+
+  override fun recommend(userId: Long) = allAlcohol.recommendAlcohol(allUser.getResult(userId))
 }
